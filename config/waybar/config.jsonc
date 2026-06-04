@@ -11,7 +11,9 @@
         "clock#right"
     ],
     "modules-right": [
-        "network"
+        "tray",
+        "network",
+        "battery"
     ],
     "clock#left": {
         "format": "{:%H}"
@@ -37,11 +39,35 @@
             "*": 5 
         }
     },
-    "network": {
-        "interface": "enp4s0",
-        "format": "󰈁 Connected",
-        "format-disconnected": "󰈂 Disconnected"
+    "tray": {
+    "icon-size": 16,
+    "spacing": 8
     },
+    "battery": {
+    "bat": "BAT1",
+    "interval": 60,
+    "format": "{icon}",
+    "tooltip": true,
+    "tooltip-format": "{capacity} %",
+    "on-click": "kitty sh -c 'upower -i $(upower -e | grep BAT) ; read'",
+    "format-icons": {
+        "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+            }
+        },
+    "network": {
+        "format-wifi": "󰖩",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip": true,
+        "tooltip-format-wifi": "{essid}",
+        "tooltip-format-ethernet": "Ethernet",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "kitty -e nmtui",
+        "on-scroll-up": "nmcli radio wifi on",
+        "on-scroll-down": "nmcli radio wifi off",
+        "format-disabled": "󱚼"
+        },
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-bluetooth": " {volume}%",

@@ -4,8 +4,9 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-  output = "Virtual-1",
-  mode = "1920x1080@60.00",
+  output = "eDP-1",
+  mode = "1920x1080@144.00200",
   position = "0x0",
   scale = 1,
 })
+

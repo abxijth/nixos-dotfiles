@@ -4,9 +4,9 @@
 
 -- Set programs that you use
 local terminal    = "kitty"
-local fileManager = "nautilus"
+local fileManager = "kitty -e yazi"
 local menu        = "/home/abxijth/.config/rofi/type-2/launcher.sh"
-local browser    = "firefox"
+local browser    = "zen-browser"
 
 ---------------------
 ---- KEYBINDINGS ----
